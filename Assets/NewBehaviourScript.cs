@@ -3,16 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TestScript : MonoBehaviour
-{   
+{
     void Start()
     {
         MyList myList = new MyList();
-        myList.Add(1);
+        myList.Add(8);
+        myList.Add(10);
         myList.Add(5);
         myList.Insert(1, 3);
-        myList.Capacity = 4;
-        myList.Remove(3);
-        myList.RemoveAt(0);
+        for (int i = 0; i < myList.Count; ++i)
+        {
+            Debug.Log(myList[i]);
+        }
+        myList.Clear();
+        myList.Add(3);
+        myList.Add(2);
+        myList.Add(1);
+        myList.Add(9);
+        Debug.Log(myList.Contains(3));
+        Debug.Log(myList.Remove(3));
+        Debug.Log(myList.Contains(3));
+        for (int i = 0; i < myList.Count; ++i)
+        {
+            Debug.Log(myList[i]);
+        }
+        myList.Add(1);
+        for (int i = 0; i < myList.Count; ++i)
+        {
+            Debug.Log(myList[i]);
+        }
     }
 
     void Update()
@@ -31,7 +50,7 @@ public class MyList
     public MyList()
     {
         Count = 0;
-        Capacity = 0;
+        Capacity = 4;
     }
 
     public MyList(int capacity)
